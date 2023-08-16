@@ -124,50 +124,19 @@ def data_sorting(agg_list):
 
     for index_1, item_1 in enumerate(items):  # 取得してきたデータの商品名部分のみ抽出
         split_item_1 = set(item_1.split())
-        # print("iteration1")
-        # print("itemsリスト", items)
-        # print(len(items[index_1 + 1:]))
         for index_2, item_2 in enumerate(items[index_1 + 1:], start=index_1 + 1):
             split_item_2 = set(item_2.split())
-            # print("iteration2")
-            # print("split_item_2:",split_item_2)
-            # print("split_item_1:",split_item_1)
             common_words = split_item_2.intersection(split_item_1)
-            # print("common_words:", common_words)
-            # print("ナムコ", len(common_words))
             if len(common_words) >= num_co_words:
-                # print("passed the if 1")
-                # print("all_list:", all_list)
                 if not any(item_2 in d.values() for d in all_list):
-                    # print("item_1の名前", item_1)
-                    # print("item_2の名前", item_2)
-                    # print("入ったアイテムの名前", item_2)
-                    # print("入ったアイテムのインデックス番号", items.index(item_2))
-                    # print("index_2の値", index_2)
-                    # print("入ったアイテム", month_list[index_2])
                     all_list.append(month_list[index_2])
                     index_item_2 = all_list.index((month_list[index_2]))
-                    # print("①直後のall_listの状況", all_list)
-
                     if not any(item_1 in d.values() for d in all_list):
-                        # print("counterの数", counter)
-                        # print("入ったアイテムの名前", item_1)
-                        # print("入ったアイテムのインデックス番号", items.index(item_1))
-                        # print("index_1の値", index_1)
-                        # print("入ったアイテム", month_list[index_1])
-                        #all_list.insert(index_item_2,month_list[index_1])
                         modified_dict = {k: f"({counter})、{v}" for k, v in month_list[index_1].items()}
                         all_list.insert(index_item_2, modified_dict)
                         counter += 1
-                        # print("②直後のall_listの状況", all_list)
                 elif item_1 == item_2:
-                    # print("入ったアイテムの名前", item_2)
-                    # print("入ったアイテムのインデックス番号", items.index(item_2))
-                    # print("index_2の値", index_2)
-                    # print("入ったアイテム", month_list[index_2])
                     all_list.append(month_list[index_2])
-            #         print("③直後のall_listの状況", all_list)
-            # print("ループ後のall_listの状況", all_list)
 
     print(all_list)
     print(len(all_list))
