@@ -3,9 +3,10 @@
 
 ## ライブラリー/フレームワーク/モジュール
 このプロジェクトでは以下を使用します。
->-selenium
->-BeautifulSoup
->-geckodriver"
+- selenium
+- BeautifulSoup
+- geckodriver"
+- pandas
 
 ## 使用方法
 以上のライブラリーをインストール後、main_scraper_2 self mod.py を開くと使用できます。
